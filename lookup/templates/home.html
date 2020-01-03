@@ -2,6 +2,20 @@
 
 {% block content %}
 
-Hello World
+	<div class="container jumbotron">
+		{% if api %}
+			{% if api == 'Error...' %}
+				<p class="lead">Oops! There was an error. Please try again.</p>
+			{% else %}
+			  <h1 class="display-4">Category : {{ api.0.Category.Name }}</h1>
+			  <div  class="rounded-pill good"></div>
+			  <p class="lead">{{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}</p>
+			  <hr class="my-4">
+			  <p>{{ qualitydesc }}</p>
+
+			{% endif %}
+
+		{% endif %}
+	</div>
 
 {% endblock %}
