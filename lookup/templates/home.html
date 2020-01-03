@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<div class="container jumbotron">
+	<div class="container jumbotron {{ color }}">
 		{% if api %}
 			{% if api == 'Error...' %}
 				<p class="lead">Oops! There was an error. Please try again.</p>
