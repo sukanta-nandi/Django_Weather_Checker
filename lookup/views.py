@@ -4,6 +4,8 @@ from django.shortcuts import render
 
 #http://www.airnowapi.org/aq/observation/zipCode/current/?format=text/csv&zipCode=89129&distance=5&API_KEY=1C856C7F-40FB-4C12-BF44-E34F3AC82E01
 
+
+
 # Home Page View
 def home(request) :
 	import json
