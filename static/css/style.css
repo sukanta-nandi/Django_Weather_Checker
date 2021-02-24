@@ -1,0 +1,68 @@
+/* search bar */
+
+.form-control{
+    border-radius: 50px 0 0 50px;
+}
+
+.search-btn{
+    border-radius: 0 50px 50px 0;
+}
+
+/* End of search bar */
+
+/* API dropdown */
+
+.api-btn{
+    border-radius: 50px;
+}
+
+/* End of API dropdown */
+
+
+/* AIQ levels */
+
+.rounded-level-left{
+   border-radius: 50rem 0 0 50rem;
+}
+
+.rounded-level-right{
+    border-radius: 0 50rem 50rem 0;
+}
+
+
+.bg-good{
+    background-color: #008000 !important;
+}
+
+.bg-moderate{
+    background-color:  #ffcc00;
+}
+
+.bg-uh1{
+    background-color:  #ff9966 !important;
+
+}
+
+.bg-uh2{
+    background-color:   #cc3300;
+}
+
+.bg-uh3{
+    background-color:   #993399;
+
+}
+
+.bg-hazardous{
+    background-color:  #800000;
+    ;
+}
+/* End of AIQ levels */
+
+.particles{
+    background-color:   #f2f2f2;
+    ;
+}
+
+.pollutant-status-circle{
+   
+}

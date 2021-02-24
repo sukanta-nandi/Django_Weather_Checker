@@ -1,0 +1,243 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/b17295d8f2.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Air Quality Checker</title>
+  </head>
+  <body onload="checkApi()">
+    
+    <div class="container-fluid mt-0 p-3" style="height: 500px;">
+
+
+
+      <div class="row mr-2">
+
+        {% block content %}
+
+
+        {% endblock %}
+
+        <div class="row align-items-center ml-auto" hidden>
+          <div class="col">
+            <div class="dropdown mr-2">
+              <button type="button" id="selectedapi"class="btn api-btn dropdown-toggle border-dark" data-toggle="dropdown">
+                Change API
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item active" onclick="changeApi(this.id)" id="apiairnow" href="#">AirNow</a>
+                <a class="dropdown-item" onclick="changeApi(this.id)" id="apiaciqn" href="#">ACIQN</a>
+              </div>
+            </div>
+          </div>
+          
+        </div> 
+        
+      </div>
+
+      <div class="row mt-3 justify-content-center">
+        <div class="col-6 text-center">
+          <h2>Air Quality Index Checker</h2>
+        </div>    
+      </div>
+
+      <div class="row justify-content-center my-2">
+        <div class="col-lg-5 col-md-6 col-sm-8 col-10">
+            {% block content2 %}
+            
+            {% endblock %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+
+        </div>
+      </div>
+
+      <div class="row">
+
+        
+
+        <!----- Col-1 ----->
+        <div class="col-lg-3 col-md-3 order-lg-1 order-md-1 order-3 mt-lg-0 mt-md-0 mt-5 mb-5">
+
+          <div class="row px-2 py-1 justify-content-center">
+            <div class="col-10 border border rounded">
+              
+              <div class="row">
+                <div class="col particles border-bottom p-1">
+                  <div class="text-center">
+                    PM 2.5
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col bg-white">
+                  <p class="small my-1">
+                    PM2.5 is particulate matter 2.5 micrometers or less in diameter. PM2.5 is generally described as fine particles. 
+                  </p>
+                  <p class=" mb-0 text-right"><a href="https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm" target="_blank" class="badge badge-primary">know more</a></p>
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+
+          <div class="row px-2 py-1 justify-content-center">
+            <div class="col-10 border border rounded">
+              
+              <div class="row">
+                <div class="col particles border-bottom p-1">
+                  <div class="text-center">
+                    OZONE
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col bg-white">
+                  <p class="small my-1">
+                    Ozone (O3) is a highly reactive gas composed of three oxygen atoms. It is both a natural and a man-made product that occurs in the Earth's upper atmosphere. 
+                  </p>
+                  <p class=" mb-0 text-right"><a href="https://www.epa.gov/ground-level-ozone-pollution/ground-level-ozone-basics" target="_blank" class="badge badge-primary">know more</a></p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+
+
+          <div class="row px-2 py-1 justify-content-center">
+            <div class="col-10 border border rounded">
+              
+              <div class="row">
+                <div class="col particles border-bottom p-1">
+                  <div class="text-center">
+                    PM 10
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col bg-white">
+                  <p class="small my-1">
+                    PM10 is particulate matter 10 micrometers or less in diameter.
+                  </p>
+                  <p class=" mb-0 text-right"><a href="https://www.irceline.be/en/documentation/faq/what-is-pm10-and-pm2.5" target="_blank" class="badge badge-primary">know more</a></p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        
+
+        </div>
+
+
+        {% block content3 %}
+            
+        {% endblock %}
+
+       
+        
+
+        <!----- Col-3 ----->
+        <div class="col-lg-3  col-md-3 order-lg-3 order-md-3 order-2 mt-lg-0 mt-md-0 mt-5">
+
+
+          <div class="row py-2">
+            <div class="col text-center">
+              <h6 class="font-weight-bold">AQI Levels</h6>
+            </div>
+          </div>
+
+          <div class="row p-1 justify-content-center">
+            <div class="col">
+
+              <div class="row p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-2 p-2 text-center rounded-level-left bg-good">
+                    <div class="text-white small">0-50</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 ml-1 p-2 text-center rounded-level-right bg-good">
+                  <div class="text-white small">Good</div>
+                </div>
+              </div>
+
+              <div class="row  p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-md-3 col-2 p-2 text-center rounded-level-left bg-moderate" >
+                    <div class="text-white small">51-100</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 ml-1 p-2 text-center rounded-level-right bg-moderate">
+                  <div class="text-white small">Moderate</div>
+                </div>
+              </div>
+
+              <div class="row  p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-md-3 col-2 p-lg-2 p-md-3 p-2 text-center rounded-level-left bg-uh1">
+                    <div class="text-white small">101-150</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 ml-1 p-2 text-center rounded-level-right bg-uh1">
+                  <div class="text-white small">Unhealthy for Sensitive</div>
+                </div>
+              </div>
+
+              <div class="row  p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-2 p-2 text-center rounded-level-left bg-uh2">
+                    <div class="text-white small">151-200</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 ml-1 p-2 text-center rounded-level-right bg-uh2">
+                  <div class="text-white small">Unhealthy</div>
+                </div>
+              </div>
+
+              
+
+              <div class="row  p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-2 bg-uh3 p-2 text-center rounded-level-left">
+                    <div class="text-white small">201-300</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 bg-uh3 ml-1 p-2 text-center rounded-level-right">
+                  <div class="text-white small">Very Unhealthy</div>
+                </div>
+              </div>
+
+              <div class="row  p-1 justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-4 col-2 bg-hazardous p-2 text-center rounded-level-left">
+                    <div class="text-white small">300+</div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6 bg-hazardous ml-1 p-2 text-center rounded-level-right">
+                  <div class="text-white small">Hazardous</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{% static 'script/mainscript.js' %}"></script>
+  </body>
+</html>

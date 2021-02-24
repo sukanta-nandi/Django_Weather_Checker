@@ -1,0 +1,86 @@
+{% extends 'base2.html' %}
+
+
+{% block content %}
+
+    <div class="row mr-auto align-items-center ml-2" hidden>
+        <div class="col border border-dark rounded-pill">
+        <div class="h5" id="current-api">API : AirNow</div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content2 %}
+<form action="{% url 'airnow' %}" method="POST"> 
+  {% csrf_token %} 
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Enter a US Zip Code .." aria-label="Text input with segmented dropdown button" name="zipcode">
+    <div class="input-group-append">
+        <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+
+{% block content3 %}
+
+ <!----- Col-2 ----->
+ <div class="col-lg-6 col-md-6 py-3 px-5 order-lg-2 order-md-2 order-1">
+
+    <div class="row justify-content-center mt-3">
+      <i class="fa fa-map-marker fa-2x text-danger"></i>
+      <h2 class="ml-3 text-center">{{ area }},{{ st }} ({{ zip }}) </h2>
+    </div>
+    <div class="row justify-content-center mt-1">
+      <p>Primary pollutant : <span class="font-weight-bold">OZONE</span></p>
+    </div>
+    <div class="row mt-2 justify-content-center">
+      <div class="col-5 p-3 bg-good rounded">
+        <div class="text-white h3 text-center">Good</div>
+      </div>
+
+      <div class="col-2 p-3 ml-3 bg-good rounded text-center">
+        <div class="text-white h3">50</div>
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <p class="font-weight-bold h5">: All Pollutants :</p>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-3 p-1 d-flex flex-column justify-content-center">
+        <div class="bg-good d-flex justify-content-center align-items-center mx-auto" style="width: 3rem; height: 3rem; border-radius: 50%;">
+          <p class="my-auto text-white h5">50</p>
+        </div>
+        <div class="d-flex mx-auto mt-2 border border-dark px-3">
+          O3
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-3 p-1 d-flex flex-column justify-content-center ml-lg-3 ml-md-2">
+        <div class="bg-hazardous d-flex justify-content-center align-items-center mx-auto" style="width: 3rem; height: 3rem; border-radius: 50%;">
+          <p class="my-auto text-white h5">50</p>
+        </div>
+        <div class="d-flex mx-auto mt-2 border border-dark px-2">
+          PM2.5
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-3 p-1 d-flex flex-column justify-content-center ml-lg-3 ml-md-3">
+        <div class="bg-uh1 d-flex justify-content-center align-items-center mx-auto" style="width: 3rem; height: 3rem; border-radius: 50%;">
+          <p class="my-auto text-white h5">50</p>
+        </div>
+        <div class="d-flex mx-auto mt-2 border border-dark px-2">
+          PM10
+        </div>
+      </div>
+    </div>
+
+    
+</div>
+
+
+
+{% endblock %}
